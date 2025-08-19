@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://buja3b8so25nc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6q12"]
+bg_color = Color(0.387096, 0.732179, 7.70092e-07, 1)
+corner_radius_top_left = 125
+corner_radius_top_right = 125
+corner_radius_bottom_right = 125
+corner_radius_bottom_left = 125
+
+[node name="planet" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -47.0
+offset_top = -47.0
+offset_right = 47.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u6q12")

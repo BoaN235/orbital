@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxpaftreo674"]
+
+[ext_resource type="PackedScene" uid="uid://cu5xg6a5k47dt" path="res://objects/sun.tscn" id="1_4cs7k"]
+[ext_resource type="PackedScene" uid="uid://buja3b8so25nc" path="res://objects/planet.tscn" id="2_muuoh"]
+
+[node name="system" type="Node2D"]
+
+[node name="sun" parent="." instance=ExtResource("1_4cs7k")]
+
+[node name="planet" parent="sun" instance=ExtResource("2_muuoh")]
+
+[node name="planet2" parent="sun" instance=ExtResource("2_muuoh")]
