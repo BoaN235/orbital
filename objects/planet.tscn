@@ -1,17 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://buja3b8so25nc"]
+[gd_scene load_steps=4 format=3 uid="uid://vfi7kt12rebt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6q12"]
-bg_color = Color(0.387096, 0.732179, 7.70092e-07, 1)
-corner_radius_top_left = 125
-corner_radius_top_right = 125
-corner_radius_bottom_right = 125
-corner_radius_bottom_left = 125
+[ext_resource type="Script" uid="uid://cjt2catjt4pku" path="res://objects/planet.gd" id="1_8n4ut"]
 
-[node name="planet" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyw3g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8n4ut"]
+radius = 100.0
+
+[node name="planet" type="CharacterBody2D"]
+scale = Vector2(0.997297, 1.01511)
+script = ExtResource("1_8n4ut")
+metadata/_custom_type_script = "uid://0fn0difc3uuq"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gyw3g")
+debug_color = Color(1, 1, 1, 0.42)
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = -47.0
-offset_top = -47.0
-offset_right = 47.0
-offset_bottom = 47.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_u6q12")
+offset_left = -3227.72
+offset_top = -3278.46
+offset_right = 3269.28
+offset_bottom = 3218.54
+
+[node name="soi" type="Area2D" parent="."]
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="soi"]
+shape = SubResource("CircleShape2D_8n4ut")

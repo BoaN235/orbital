@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3snugo7gu67n"]
+
+[ext_resource type="Script" uid="uid://0fn0difc3uuq" path="res://objects/py_body.gd" id="1_gyw3g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyw3g"]
+
+[node name="py_body" type="CharacterBody2D"]
+scale = Vector2(0.997297, 1.01511)
+script = ExtResource("1_gyw3g")
+metadata/_custom_type_script = "uid://0fn0difc3uuq"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gyw3g")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -3227.72
+offset_top = -3278.46
+offset_right = 3269.28
+offset_bottom = 3218.54
