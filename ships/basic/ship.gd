@@ -2,10 +2,11 @@ extends Py_Body
 
 
 
-const SPEED = 500.0
+const SPEED = 150.0
 var godmode = false
 
 var g_velocity = Vector2(0,0)
+var mouse_pos
 
 var zoom_min= Vector2(.007, .007)
 var zoom_max= Vector2(2.5, 2.5)
@@ -15,8 +16,14 @@ var zoom_speed = Vector2(.3, .3)
 @onready var map_cam = get_node("map_cam")
 @onready var map_dot = get_node("map_dot")
 
-func _physics_process(_delta: float):
-	Engine.set_physics_ticks_per_second(60*10)
+@onready var player_img = $PlayerImg
+@onready var player_ui = $Player_Ui
+
+@onready var cam_velocity_labels = get_node("player_cam/Control/Label")
+@onready var map_velocity_label = get_node("map_cam/Control/Label")
+
+func _physics_process(delta: float):
+	Engine.set_physics_ticks_per_second(60*4)
 	if godmode:
 		g_velocity = Vector2.ZERO
 		var direction_x := Input.get_axis("ui_left", "ui_right")
@@ -32,10 +39,13 @@ func _physics_process(_delta: float):
 			g_velocity.y = move_toward(g_velocity.x, 0, SPEED)
 		move_and_collide(g_velocity)
 	else:
-		acceleration = gravity(check_soi(self), self.position)
-		#print(acceleration," ", self.position, " ", check_soi())
-		velocity += acceleration * -1
-		move_and_collide(velocity)
+		player_img.look_at(get_global_mouse_position())
+		var delta2 = delta
+		super._physics_process(delta)
+		# Example: Scaling a Panel based on camera zoom
+		var camera_zoom = player_cam.zoom.x # Assuming Camera2D is a sibling
+		player_ui.scale = Vector2(1.0 / camera_zoom, 1.0 / camera_zoom)
+
 
 func _input(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -59,3 +69,6 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("god_mode"):
 		godmode = !godmode
 		velocity = Vector2.ZERO
+	if event.is_action_pressed("boost"):
+		var direction = player_img.transform.x.normalized()
+		velocity += direction * SPEED

@@ -1,11 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://vfi7kt12rebt"]
+[gd_scene load_steps=6 format=3 uid="uid://vfi7kt12rebt"]
 
 [ext_resource type="Script" uid="uid://cjt2catjt4pku" path="res://objects/planet.gd" id="1_8n4ut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyw3g"]
+radius = 3284.94
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n4ut"]
+bg_color = Color(0.737255, 0.215686, 0, 1)
+corner_radius_top_left = 5000
+corner_radius_top_right = 5000
+corner_radius_bottom_right = 5000
+corner_radius_bottom_left = 5000
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8n4ut"]
 radius = 100.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elel1"]
+bg_color = Color(0, 0.662745, 0.819608, 0.313726)
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
 
 [node name="planet" type="CharacterBody2D"]
 scale = Vector2(0.997297, 1.01511)
@@ -14,16 +29,33 @@ metadata/_custom_type_script = "uid://0fn0difc3uuq"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gyw3g")
-debug_color = Color(1, 1, 1, 0.42)
+debug_color = Color(0.490196, 0.654902, 1, 1)
+
+[node name="Size" type="Panel" parent="."]
+offset_left = -3227.72
+offset_top = -3278.46
+offset_right = 3269.28
+offset_bottom = 3218.54
+pivot_offset = Vector2(3278, 3228)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8n4ut")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -3227.72
 offset_top = -3278.46
 offset_right = 3269.28
 offset_bottom = 3218.54
+theme_override_styles/panel = SubResource("StyleBoxFlat_8n4ut")
 
 [node name="soi" type="Area2D" parent="."]
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="soi"]
 shape = SubResource("CircleShape2D_8n4ut")
+
+[node name="Soiimg" type="Panel" parent="."]
+offset_left = -3227.72
+offset_top = -3292.25
+offset_right = 3269.28
+offset_bottom = 3204.75
+pivot_offset = Vector2(3227.73, 3278.46)
+theme_override_styles/panel = SubResource("StyleBoxFlat_elel1")

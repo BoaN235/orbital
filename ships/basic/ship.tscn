@@ -1,13 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://drtn1wodq18pu"]
+[gd_scene load_steps=8 format=3 uid="uid://drtn1wodq18pu"]
 
 [ext_resource type="Script" uid="uid://dhkrgjhrqjonh" path="res://ships/basic/ship.gd" id="1_n44o5"]
+[ext_resource type="PackedScene" uid="uid://5i2b33612owd" path="res://ships/basic/player_ui.tscn" id="2_wbs81"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n44o5"]
 radius = 100.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n44o5"]
+bg_color = Color(0.912912, 0, 0.0626241, 0.313726)
+corner_radius_top_left = 2500
+corner_radius_top_right = 2500
+corner_radius_bottom_right = 2500
+corner_radius_bottom_left = 2500
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n44o5"]
+radius = 24.0
+height = 200.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbs81"]
+bg_color = Color(0, 0.309853, 0.795267, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4s8en"]
+bg_color = Color(0, 0.72115, 0.311266, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [node name="ship" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_n44o5")
-g_mass = 122.683
 metadata/_custom_type_script = "uid://0fn0difc3uuq"
 
 [node name="player_cam" type="Camera2D" parent="."]
@@ -23,8 +49,38 @@ enabled = false
 zoom = Vector2(0.001, 0.001)
 
 [node name="map_dot" type="Panel" parent="."]
-visible = false
-offset_left = -3227.72
-offset_top = -3278.46
-offset_right = 3269.28
-offset_bottom = 3218.54
+offset_left = -3228.0
+offset_top = -3301.0
+offset_right = 3269.0
+offset_bottom = 3196.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n44o5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_n44o5")
+
+[node name="PlayerImg" type="CharacterBody2D" parent="."]
+motion_mode = 1
+
+[node name="PlayerImg" type="Panel" parent="PlayerImg"]
+offset_left = -92.0
+offset_top = -92.0
+offset_right = 92.0
+offset_bottom = 92.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbs81")
+
+[node name="playerinside" type="Panel" parent="PlayerImg/PlayerImg"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 46.0
+offset_right = 276.0
+offset_bottom = 230.0
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_4s8en")
+
+[node name="Player_Ui" parent="." instance=ExtResource("2_wbs81")]
+offset_left = -519424.0
+offset_top = 268516.0
+offset_right = -519424.0
+offset_bottom = 268516.0
+scale = Vector2(10, 10)

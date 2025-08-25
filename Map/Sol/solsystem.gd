@@ -10,7 +10,7 @@ func _ready():
 	var sun_instance = body.instantiate()
 	sun_instance.g_mass = 1.989 * pow(10, 30)/scale_factor
 	sun_instance.get_child(0).shape = sun_instance.get_child(0).shape.duplicate()
-	sun_instance.get_child(0).shape.radius = 1391400.0/scale_factor
+	#sun_instance.get_child(0).shape.radius = 1391400.0/scale_factor
 	sun_instance.soi_disabled = false
 	soi = sun_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -20,6 +20,7 @@ func _ready():
 	sun_instance.name = 'sun'
 	sun_instance.id = planet_id
 	sun_instance.soi_radius = soi.shape.radius
+	sun_instance.is_sun = true
 	$physics_objects.add_child(sun_instance)
 
 	var mercury_instance = body.instantiate()
@@ -27,7 +28,7 @@ func _ready():
 	mercury_instance.g_mass = 3.30 * pow(10, 23)/scale_factor
 	mercury_instance.position = Vector2(5790000/scale_factor, 0)
 	mercury_instance.get_child(0).shape = mercury_instance.get_child(0).shape.duplicate()
-	mercury_instance.get_child(0).shape.radius = 48790.0/scale_factor
+	#mercury_instance.get_child(0).shape.radius = 48790.0/scale_factor
 	mercury_instance.soi_disabled = false
 	soi = mercury_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -42,7 +43,7 @@ func _ready():
 	venus_instance.g_mass = 4.86 * pow(10, 24)/scale_factor
 	venus_instance.position = Vector2(10820000/scale_factor, 0)
 	venus_instance.get_child(0).shape = venus_instance.get_child(0).shape.duplicate()
-	venus_instance.get_child(0).shape.radius = 121040.0/scale_factor
+	#venus_instance.get_child(0).shape.radius = 121040.0/scale_factor
 	venus_instance.soi_disabled = false
 	soi = venus_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -58,7 +59,7 @@ func _ready():
 	earth_instance.position = Vector2(14960000/scale_factor, 0)
 	earth_instance.get_child(0).shape = earth_instance.get_child(0).shape.duplicate()
 	earth_instance.soi_disabled = false
-	earth_instance.get_child(0).shape.radius = 127560.0/scale_factor
+	#earth_instance.get_child(0).shape.radius = 127560.0/scale_factor
 	soi = earth_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
 	earth_instance.get_node("soi").get_child(0).shape.radius = (127560.0/scale_factor)*soi_scale
@@ -72,7 +73,7 @@ func _ready():
 	mars_instance.g_mass = 6.41 * pow(10, 23)/scale_factor
 	mars_instance.position = Vector2(22790000/scale_factor, 0)
 	mars_instance.get_child(0).shape = mars_instance.get_child(0).shape.duplicate()
-	mars_instance.get_child(0).shape.radius = 67920.0/scale_factor
+	#mars_instance.get_child(0).shape.radius = 67920.0/scale_factor
 	mars_instance.soi_disabled = false
 	soi = mars_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -87,7 +88,7 @@ func _ready():
 	jupiter_instance.g_mass = 1.89 * pow(10, 27)/scale_factor
 	jupiter_instance.position = Vector2(44860000/scale_factor, 0)
 	jupiter_instance.get_child(0).shape = jupiter_instance.get_child(0).shape.duplicate()
-	jupiter_instance.get_child(0).shape.radius = 242984.0/scale_factor
+	#jupiter_instance.get_child(0).shape.radius = 242984.0/scale_factor
 	jupiter_instance.soi_disabled = false
 	soi = jupiter_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -102,7 +103,7 @@ func _ready():
 	saturn_instance.g_mass = 5.68 * pow(10, 26)/scale_factor
 	saturn_instance.position = Vector2(53350000/scale_factor, 0)
 	saturn_instance.get_child(0).shape = saturn_instance.get_child(0).shape.duplicate()
-	saturn_instance.get_child(0).shape.radius = 220536.0/scale_factor
+	#saturn_instance.get_child(0).shape.radius = 220536.0/scale_factor
 	soi = saturn_instance.get_node("soi").get_child(0)
 	saturn_instance.soi_disabled = false
 	soi.shape = soi.shape.duplicate()
@@ -117,7 +118,7 @@ func _ready():
 	uranus_instance.g_mass = 8.68 * pow(10, 25)/scale_factor
 	uranus_instance.position = Vector2(77250000/scale_factor, 0)
 	uranus_instance.get_child(0).shape = uranus_instance.get_child(0).shape.duplicate()
-	uranus_instance.get_child(0).shape.radius = 111180.0/scale_factor
+	#uranus_instance.get_child(0).shape.radius = 111180.0/scale_factor
 	uranus_instance.soi_disabled = false
 	soi = uranus_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -132,7 +133,7 @@ func _ready():
 	neptune_instance.g_mass = 1.02 * pow(10, 26)/scale_factor
 	neptune_instance.position = Vector2(100510000/scale_factor, 0)
 	neptune_instance.get_child(0).shape = neptune_instance.get_child(0).shape.duplicate()
-	neptune_instance.get_child(0).shape.radius = 99528.0/scale_factor
+	#neptune_instance.get_child(0).shape.radius = 99528.0/scale_factor
 	neptune_instance.soi_disabled = false
 	soi = neptune_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()
@@ -147,7 +148,7 @@ func _ready():
 	pluto_instance.g_mass = 1.02 * pow(10, 26)/scale_factor
 	pluto_instance.position = Vector2(120510000/scale_factor, 0)
 	pluto_instance.get_child(0).shape = pluto_instance.get_child(0).shape.duplicate()
-	pluto_instance.get_child(0).shape.radius = 118000.3/scale_factor
+	#pluto_instance.get_child(0).shape.radius = 118000.3/scale_factor
 	pluto_instance.soi_disabled = false
 	soi = pluto_instance.get_node("soi").get_child(0)
 	soi.shape = soi.shape.duplicate()

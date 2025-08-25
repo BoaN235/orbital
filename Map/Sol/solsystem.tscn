@@ -9,4 +9,4 @@ script = ExtResource("1_1re5v")
 [node name="physics_objects" type="Node2D" parent="."]
 
 [node name="ship" parent="physics_objects" instance=ExtResource("2_720cr")]
-position = Vector2(-93, -16020)
+position = Vector2(82961, -1087)

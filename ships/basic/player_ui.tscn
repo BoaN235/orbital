@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://5i2b33612owd"]
+
+[ext_resource type="Script" uid="uid://bswmwwiksrtm3" path="res://ships/basic/player_ui.gd" id="1_ns853"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdkju"]
+resource_local_to_scene = true
+font_size = 3000
+
+[node name="Player Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ns853")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -5754.0
+offset_top = 2178.0
+offset_right = -1748.0
+offset_bottom = 4633.0
+text = "Hi
+"
+label_settings = SubResource("LabelSettings_gdkju")
